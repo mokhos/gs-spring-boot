@@ -4,4 +4,4 @@ COPY . .
 
 RUN mvn -f app/pom.xml clean package
 
-CMD ["mvn", "exec:java"]
+CMD ["java", "-jar", "app/target/gs-spring-boot-0.1.0.jar"]
