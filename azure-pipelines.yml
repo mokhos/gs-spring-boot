@@ -39,12 +39,15 @@ stages:
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
 
+
+
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
         Contents: '**/target/*.?(war|jar)'
         TargetFolder: $(Build.ArtifactStagingDirectory)
+
 
     - task: PublishPipelineArtifact@0
       displayName: 'Publish pipeline artifacts'
@@ -67,7 +70,11 @@ stages:
           steps:
           - task: DownloadPipelineArtifact@2
             inputs:
-              buildType: 'current'
+              buildType: 'specific'
+              project: '52eb2df2-eb85-408f-86ca-2a236aa4aa68'
+              definition: '17'
+              specificBuildWithTriggering: true
+              buildVersionToDownload: 'latest'
               targetPath: '$(Pipeline.Workspace)'
           
           - task: AzureRmWebAppDeployment@4
