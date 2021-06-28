@@ -70,12 +70,8 @@ stages:
           steps:
           - task: DownloadPipelineArtifact@2
             inputs:
-              buildType: 'specific'
-              project: '52eb2df2-eb85-408f-86ca-2a236aa4aa68'
-              definition: '17'
-              specificBuildWithTriggering: true
-              buildVersionToDownload: 'latest'
-              targetPath: '$(Pipeline.Workspace)'
+              buildType: 'current'
+              targetPath: '$(Build.ArtifactStagingDirectory)'
           
           - task: AzureRmWebAppDeployment@4
             inputs:
