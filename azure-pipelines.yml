@@ -76,6 +76,7 @@ stages:
               azureSubscription: 'Azure Pass - Sponsorship(cf1c428b-5817-43e1-b40d-9dc85a4a7df7)'
               appType: 'webAppLinux'
               WebAppName: 'java-springb00t-app'
-              packageForLinux: '$(System.DefaultWorkingDirectory)/drop/**/target/*.?(war|jar)'
+              packageForLinux: '$(Build.ArtifactStagingDirectory)/drop/**/target/*.?(war|jar)'
               RuntimeStack: 'TOMCAT|9.0-java11'
               StartupCommand: 'java -jar /home/site/wwwroot/gs-spring-boot-0.1.0.jar --server.port=80'
+          
