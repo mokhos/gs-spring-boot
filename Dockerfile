@@ -1,4 +1,4 @@
-FROM maven as mvn
+FROM maven:3.8-jdk-11 as mvn
 
 COPY . .
 
